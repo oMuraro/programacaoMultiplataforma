@@ -1,6 +1,6 @@
 const conexao = require('../db');
 
-async function createEquipament(name, description, serial_number){
+async function createEquipment(name, description, serial_number){
     const sql = "INSERT INTO equipamentos (nome, descricao, numero_serie) VALUES (?, ?, ?)";
     try {
         const [res] = await conexao.query(sql, [name, description, serial_number]);
@@ -10,7 +10,7 @@ async function createEquipament(name, description, serial_number){
     }
 }
 
-async function showEquipaments(){
+async function showEquipments(){
     const sql = "SELECT * FROM equipamentos";
     try {
         const [res] = await conexao.query(sql);
@@ -20,7 +20,7 @@ async function showEquipaments(){
     }
 }
 
-async function searchEquipamentById(id){
+async function searchEquipmentById(id){
     const sql = "SELECT * FROM equipamentos WHERE id = ?";
     try {
         const [res] = await conexao.query(sql, [id]);
@@ -30,7 +30,7 @@ async function searchEquipamentById(id){
     }
 }
 
-async function updateEquipament(id, name, description, serial_number){
+async function updateEquipment(id, name, description, serial_number){
     const sql = "UPDATE equipamentos SET nome = ?, descricao = ?, numero_serie = ? WHERE id = ?";
     try {
         const [res] = await conexao.query(sql, [name, description, serial_number, id]);
@@ -40,7 +40,7 @@ async function updateEquipament(id, name, description, serial_number){
     }
 }
 
-async function deleteEquipament(id){
+async function deleteEquipment(id){
     const sql = "DELETE FROM equipamentos WHERE id = ?";
     try {
         const [res] = await conexao.query(sql, [id]);
@@ -51,9 +51,9 @@ async function deleteEquipament(id){
 }
 
 module.exports = {
-    createEquipament,
-    showEquipaments,
-    searchEquipamentById,
-    deleteEquipament,
-    updateEquipament
+    createEquipment,
+    showEquipments,
+    searchEquipmentById,
+    deleteEquipment,
+    updateEquipment
 }
