@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 14-Mar-2025 às 21:44
+-- Tempo de geração: 21-Mar-2025 às 19:29
 -- Versão do servidor: 10.4.27-MariaDB
 -- versão do PHP: 8.2.0
 
@@ -34,6 +34,14 @@ CREATE TABLE `equipamentos` (
   `numero_serie` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Extraindo dados da tabela `equipamentos`
+--
+
+INSERT INTO `equipamentos` (`id`, `nome`, `descricao`, `numero_serie`) VALUES
+(2, 'antena', 'parabolica', '191919'),
+(3, 'Serra Elétrica', 'Corte em arvores', 'A918K-91KM3');
+
 -- --------------------------------------------------------
 
 --
@@ -46,8 +54,7 @@ CREATE TABLE `manutencoes` (
   `tecnico_id` int(11) NOT NULL,
   `servico_id` int(11) NOT NULL,
   `data_inicio` date NOT NULL,
-  `data_prevista_termino` date NOT NULL,
-  `observacoes` text DEFAULT NULL
+  `data_prevista_termino` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -62,6 +69,13 @@ CREATE TABLE `servicos` (
   `custo` decimal(10,2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Extraindo dados da tabela `servicos`
+--
+
+INSERT INTO `servicos` (`id`, `descricao`, `custo`) VALUES
+(2, 'Arrumar Serra', '600.00');
+
 -- --------------------------------------------------------
 
 --
@@ -71,9 +85,15 @@ CREATE TABLE `servicos` (
 CREATE TABLE `tecnicos` (
   `id` int(11) NOT NULL,
   `nome` varchar(100) NOT NULL,
-  `especialidade` varchar(100) DEFAULT NULL,
   `contato` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Extraindo dados da tabela `tecnicos`
+--
+
+INSERT INTO `tecnicos` (`id`, `nome`, `contato`) VALUES
+(2, 'José', '192981849');
 
 --
 -- Índices para tabelas despejadas
@@ -115,25 +135,25 @@ ALTER TABLE `tecnicos`
 -- AUTO_INCREMENT de tabela `equipamentos`
 --
 ALTER TABLE `equipamentos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de tabela `manutencoes`
 --
 ALTER TABLE `manutencoes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de tabela `servicos`
 --
 ALTER TABLE `servicos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de tabela `tecnicos`
 --
 ALTER TABLE `tecnicos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Restrições para despejos de tabelas
