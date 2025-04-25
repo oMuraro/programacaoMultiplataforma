@@ -7,7 +7,7 @@ const serviceRouter = require('./routes/serviceRoutes');
 const maintenanceRouter = require('./routes/maintenanceRoutes');
 
 const app = express();
-const port = 3000;
+const port = 3001;
 
 app.use(cors());
 app.use(bodyParser.json());
